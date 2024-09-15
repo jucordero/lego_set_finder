@@ -13,6 +13,7 @@ def add_parts_menu(apit):
 
     with col1:
         # part = st.text_input("Select part number")
+        print(part_database.head())
         part_name = st.selectbox("Select part",
             part_database["name"],
             help="""Type to search for a part name. A few tips that can help you get to your piece quicker:  
