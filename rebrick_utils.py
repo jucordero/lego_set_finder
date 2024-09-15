@@ -88,10 +88,13 @@ def is_part(part_id, part_color, apit):
     try:
         ID = client.get_element_ids(part_id, part_color)
     except ValueError:
-        st.error("API key not specified. Please enter your API key in top text field.")
+        st.error("""API key not specified. Please enter your API key in top
+                 text field.""")
         return False
+    
     except HTTPError:
-        st.error("Wrong API provided. Please check your API key.")
+        st.error("""Could not find part. Please check part combination or
+                 make sure your API key is correct.""")
         return False
     
     if not ID:

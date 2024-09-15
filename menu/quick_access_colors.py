@@ -17,8 +17,7 @@ def quick_access_color_menu(part, part_name, apit):
         
         with col_color_buttons:
             if st.button(rebrick_utils.get_color_name(c)):
-                result = part_list_utils.add_part(part, c, part_name, apit)
-                st.warning("Part " + result)
+                part_list_utils.add_part(part, c, part_name, apit)
         
         with col_sample:
             st.color_picker("Sample color", "#"+rebrick_utils.get_color_rgb(c),

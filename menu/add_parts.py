@@ -13,7 +13,6 @@ def add_parts_menu(apit):
 
     with col1:
         # part = st.text_input("Select part number")
-        print(part_database.head())
         part_name = st.selectbox("Select part",
             part_database["name"],
             help="""Type to search for a part name. A few tips that can help you get to your piece quicker:  
@@ -45,7 +44,7 @@ def add_parts_menu(apit):
         # If 'result' returns a value, this means the part was not found.
         # Otherwise, the function reruns the app and never gets to the warning.
         result = part_list_utils.add_part(part, color, part_name, apit)
-        st.warning("Part " + result)
+        # st.warning("Part " + result)
 
     if reset_part:
         part_list_utils.reset_parts()

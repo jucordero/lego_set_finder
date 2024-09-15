@@ -17,11 +17,6 @@ def add_part(part, color, name, apit):
                     st.session_state["recent"].append((p, c, n))
             st.rerun()
 
-        else:
-            return "not found! Make sure the part/color combination is exists."
-    else:
-        return "already added to the search list!"
-
 def reset_parts():
     st.session_state["parts"] = []
     st.rerun()
@@ -34,7 +29,9 @@ def remove_part(remove_part_bool_list):
 
 def recolor_part(change_color_bool_list, color):
     i_recolor = change_color_bool_list.index(True)
-    st.session_state["parts"][i_recolor] = (st.session_state["parts"][i_recolor][0], color)
+    st.session_state["parts"][i_recolor] = (st.session_state["parts"][i_recolor][0],
+                                            color,
+                                            st.session_state["parts"][i_recolor][2])
     st.rerun()
 
 def remove_recent(remove_recent_bool_list):
