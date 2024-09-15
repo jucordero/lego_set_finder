@@ -1,8 +1,11 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 
 import part_list_utils
 import rebrick_utils
+
+part_database = pd.read_csv("Data/parts_clean.csv")
 
 def add_parts_menu(apit):
 
@@ -11,7 +14,7 @@ def add_parts_menu(apit):
     with col1:
         # part = st.text_input("Select part number")
         part_name = st.selectbox("Select part",
-            rebrick_utils.part_database["name"],
+            part_database["name"],
             help="""Type to search for a part name. A few tips that can help you get to your piece quicker:  
             - Start by the general category of your piece (e.g. 'Plate', 'Brick', 'Slope)  
             - Most of the time a secondary characteristic follows (e.g. 'Curved', 'Round', 'Inverted')  
